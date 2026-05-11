@@ -19,11 +19,11 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "ai",
-    label: "AI systems",
+    label: "AI & robotics",
     substrate: "data",
-    oneLiner: "Production AI, not demos.",
+    oneLiner: "Production AI and robotics, not demos.",
     outcome:
-      "We build AI systems that ship — from custom models to retrieval, evaluation, and the surrounding infrastructure that turns intelligence into reliable software.",
+      "We build AI and robotics systems that ship — from custom models to retrieval, evaluation, control loops, and the surrounding infrastructure that turns intelligence into reliable software and hardware.",
     problem: [
       "Most AI projects stall between the notebook and the system. The model works; the product doesn't.",
       "MIBTY exists for the second half: turning model behavior into infrastructure that holds up under real users, real edge cases, and real cost constraints.",
@@ -68,7 +68,6 @@ export const services: Service[] = [
       {
         title: "Evaluation-first",
         body: "We build the test set before we choose the model. That's the difference between AI that improves and AI that drifts.",
-        metric: "10× model swaps with zero regressions in a typical engagement",
       },
       {
         title: "Latency you can quote",
@@ -155,7 +154,6 @@ export const services: Service[] = [
       {
         title: "Performance budgets in CI",
         body: "Every PR runs Lighthouse and bundle-size checks. Slow code can't ship by accident.",
-        metric: "p75 LCP under 1.5s on our reference deployments",
       },
       {
         title: "Observability by default",
@@ -166,7 +164,7 @@ export const services: Service[] = [
     faq: [
       {
         q: "Can you work on existing codebases?",
-        a: "Yes — most of our work is. We audit, stabilize, and incrementally refactor. We don't pitch rewrites unless the math is unambiguous.",
+        a: "Yes. We audit, stabilize, and incrementally refactor existing systems. We don't pitch rewrites unless the math is unambiguous.",
       },
       {
         q: "What's your testing philosophy?",
@@ -401,11 +399,11 @@ export const services: Service[] = [
   },
   {
     slug: "digital-marketing",
-    label: "Digital transformation",
+    label: "Digital marketing",
     substrate: "bits",
-    oneLiner: "Modernization with a measurable line at the end.",
+    oneLiner: "Marketing engineering with a measurable line at the end.",
     outcome:
-      "Operations, internal tools, and customer-facing platforms rebuilt around current technology — with measured outcomes, not deliverables.",
+      "Acquisition, conversion, and retention surfaces built into the product — analytics, lifecycle automation, and experimentation under one roof, with outcomes you can audit.",
     problem: [
       "\"Digital transformation\" is usually a slide deck. Useful transformation is a re-engineered process with the metric to prove it.",
       "MIBTY scopes engagements around the metric: time-to-decision, throughput, error rate, customer activation — and ships the systems that move it.",

@@ -1,50 +1,81 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { PageShell } from "@/components/marketing/page-shell";
 import { PageHero } from "@/components/marketing/page-hero";
 import { Container } from "@/components/ui/container";
 import { Tag } from "@/components/ui/tag";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
-import { caseStudies } from "@/lib/content/work";
+import { capabilities } from "@/lib/content/capabilities";
 import { substrates } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Work",
-  description: "Case studies from MIBTY engagements across software, AI, biotech, and nanotech.",
+  title: "Capabilities",
+  description:
+    "What MIBTY is chartered and equipped to engineer — across software, AI & robotics, biotechnology, and nanotechnology.",
 };
 
-export default function WorkPage() {
+const substrateBorderTop: Record<string, string> = {
+  bits: "before:bg-cyan-400",
+  data: "before:bg-violet-500",
+  cells: "before:bg-mint-400",
+  atoms: "before:bg-amber-300",
+};
+
+export default function CapabilitiesPage() {
   return (
     <PageShell>
-      <PageHero eyebrow="Work" title="What we've shipped." description="A selection of recent engagements. Naming and metrics under NDA in some cases; specifics on request." />
+      <PageHero
+        eyebrow="Capabilities"
+        title="What we build."
+        description="A young company writing its first chapter in public. Selected engagements will live here as they ship — until then, the capabilities we're chartered and equipped to engineer."
+      />
 
-      <section className="pb-32">
+      <section className="pb-24">
         <Container size="wide">
           <ul className="grid gap-px overflow-hidden rounded-lg bg-(--color-border) md:grid-cols-2">
-            {caseStudies.map((c, i) => (
-              <Reveal as="li" key={c.slug} delay={i * 0.05} className="bg-(--color-bg)">
-                <Link
-                  href={`/work/${c.slug}`}
-                  className="group flex h-full flex-col p-10 transition-colors hover:bg-(--color-surface)"
+            {capabilities.map((c, i) => (
+              <Reveal as="li" key={c.title} delay={i * 0.04} className="bg-(--color-bg)">
+                <article
+                  className={cn(
+                    "relative flex h-full flex-col gap-6 p-10",
+                    "before:absolute before:inset-x-0 before:top-0 before:h-px",
+                    substrateBorderTop[c.substrate],
+                  )}
                 >
-                  <div className="flex flex-wrap items-center gap-2">
-                    {c.substrates.map((s) => (
-                      <Tag key={s} substrate={s}>
-                        {substrates[s].label}
-                      </Tag>
-                    ))}
-                  </div>
-                  <h2 className="type-display-s mt-10 text-(--color-fg) group-hover:text-violet-300">
-                    {c.title}
-                  </h2>
-                  <p className="type-body mt-4 text-(--color-fg-muted)">{c.excerpt}</p>
-                  <p className="type-mono-s mt-10 text-(--color-fg-subtle)">
-                    {c.industry} · {c.year}
-                  </p>
-                </Link>
+                  <Tag substrate={c.substrate}>{substrates[c.substrate].label}</Tag>
+                  <h2 className="type-display-s text-(--color-fg)">{c.title}</h2>
+                  <p className="type-body-l text-(--color-fg-muted)">{c.body}</p>
+                </article>
               </Reveal>
             ))}
           </ul>
+        </Container>
+      </section>
+
+      <section className="hairline-t py-24">
+        <Container size="wide">
+          <div className="hairline flex flex-col items-start gap-8 rounded-xl bg-(--color-surface) p-10 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-2xl">
+              <Eyebrow>Working with us</Eyebrow>
+              <h2 className="type-display-s mt-4 text-(--color-fg)">
+                Be among the first engagements on the record.
+              </h2>
+              <p className="type-body-l mt-3 text-(--color-fg-muted)">
+                We&rsquo;re actively taking on project work, embedded engagements, and research
+                partnerships. Tell us what you&rsquo;re building.
+              </p>
+            </div>
+            <Button asChild size="lg">
+              <Link href="/contact">
+                Start a conversation
+                <ArrowUpRight size={16} />
+              </Link>
+            </Button>
+          </div>
         </Container>
       </section>
     </PageShell>

@@ -6,19 +6,21 @@ import { PageHero } from "@/components/marketing/page-hero";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
+import { Tag } from "@/components/ui/tag";
 import { Reveal } from "@/components/motion/reveal";
 import { people } from "@/lib/content/people";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "MIBTY NIG LTD — engineering systems across software, AI, biotech, and nanotech for organizations operating at the frontier.",
+    "MIBTY NIG LTD — a Lagos-based engineering and research company building across software, AI & robotics, biotechnology, and nanotechnology.",
 };
 
 const philosophy = [
   {
     title: "Mission",
-    body: "Build systems that translate frontier science and technology into infrastructure that endures — across software, AI, biotech, and nanotech.",
+    body: "Build systems that translate frontier science and technology into infrastructure that endures — across software, AI & robotics, biotechnology, and nanotechnology.",
   },
   {
     title: "Vision",
@@ -26,16 +28,8 @@ const philosophy = [
   },
   {
     title: "Innovation philosophy",
-    body: "Evaluation-first, spine before width, open methodology where IP permits. We measure ourselves on systems still running five years after handover, not features shipped in week one.",
+    body: "Evaluation-first, spine before width, open methodology where IP permits. We measure ourselves on the systems still running five years after handover, not the features shipped in week one.",
   },
-];
-
-const milestones = [
-  { year: "2022", note: "Founded as a multidisciplinary engineering practice." },
-  { year: "2023", note: "First federated diagnostic system shipped across regional health network." },
-  { year: "2024", note: "Ministry-scale data platform delivered in 100 days." },
-  { year: "2025", note: "Open-source nanopore detection released; cited by three follow-up groups." },
-  { year: "Today", note: "Engagements across 12+ countries, four substrates, one armature." },
 ];
 
 export default function AboutPage() {
@@ -51,20 +45,35 @@ export default function AboutPage() {
             </span>
           </>
         }
-        description="MIBTY is a multidisciplinary engineering and research company. We build with researchers, ministries, healthcare leaders, and enterprises — across the substrates where the hardest problems actually live."
+        description="MIBTY NIG LTD is a young Lagos-based engineering and research company. We're chartered to work across software, AI & robotics, biotechnology, nanotechnology, data, e-commerce, and research consulting — and we're building the team to do exactly that."
       />
 
       <section className="hairline-t py-24">
         <Container size="wide">
-          <Eyebrow>Trajectory</Eyebrow>
-          <ol className="mt-10 grid gap-px overflow-hidden rounded-lg bg-(--color-border) md:grid-cols-5">
-            {milestones.map((m, i) => (
-              <Reveal as="li" key={m.year} delay={i * 0.05} className="bg-(--color-bg) p-6">
-                <p className="type-mono-s text-violet-300">{m.year}</p>
-                <p className="type-body-s mt-3 text-(--color-fg-muted)">{m.note}</p>
-              </Reveal>
-            ))}
-          </ol>
+          <Eyebrow>Company</Eyebrow>
+          <ul className="mt-10 grid gap-px overflow-hidden rounded-lg bg-(--color-border) md:grid-cols-3">
+            <Reveal as="li" className="bg-(--color-bg) p-8">
+              <p className="type-mono-s text-violet-300">Incorporated</p>
+              <p className="type-headline mt-3 text-(--color-fg)">2 February 2024</p>
+              <p className="type-body-s mt-3 text-(--color-fg-muted)">
+                Registered under the Companies and Allied Matters Act, 2020 (CAMA).
+              </p>
+            </Reveal>
+            <Reveal as="li" delay={0.05} className="bg-(--color-bg) p-8">
+              <p className="type-mono-s text-violet-300">Headquarters</p>
+              <p className="type-headline mt-3 text-(--color-fg)">Lagos, Nigeria</p>
+              <p className="type-body-s mt-3 text-(--color-fg-muted)">
+                Built in Lagos. Working globally.
+              </p>
+            </Reveal>
+            <Reveal as="li" delay={0.1} className="bg-(--color-bg) p-8">
+              <p className="type-mono-s text-violet-300">Structure</p>
+              <p className="type-headline mt-3 text-(--color-fg)">Private, limited by shares</p>
+              <p className="type-body-s mt-3 text-(--color-fg-muted)">
+                Independently held; long-term horizon.
+              </p>
+            </Reveal>
+          </ul>
         </Container>
       </section>
 
@@ -87,10 +96,17 @@ export default function AboutPage() {
 
       <section className="hairline-t py-32">
         <Container size="wide">
-          <div className="max-w-2xl">
-            <Eyebrow>Leadership</Eyebrow>
-            <h2 className="type-display-m mt-4 text-(--color-fg)">The people in the work.</h2>
+          <div className="flex items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <Eyebrow>Leadership</Eyebrow>
+              <h2 className="type-display-m mt-4 text-(--color-fg)">The people in the work.</h2>
+              <p className="type-body-l mt-4 text-(--color-fg-muted)">
+                Bios are being finalised with the team before publication.
+              </p>
+            </div>
+            <Tag>Coming soon</Tag>
           </div>
+
           <ul className="mt-16 grid gap-px overflow-hidden rounded-lg bg-(--color-border) md:grid-cols-2 lg:grid-cols-4">
             {people.map((p, i) => (
               <Reveal as="li" key={p.slug} delay={i * 0.05} className="bg-(--color-bg) p-8">
@@ -115,14 +131,14 @@ export default function AboutPage() {
         <Container size="wide">
           <div className="hairline flex flex-col items-start gap-8 rounded-xl bg-(--color-surface) p-10 md:flex-row md:items-center md:justify-between">
             <div className="max-w-xl">
-              <Eyebrow>Capability deck</Eyebrow>
+              <Eyebrow>Talk to us</Eyebrow>
               <h2 className="type-display-s mt-4 text-(--color-fg)">
-                A 16-page brief on what we do, how we work, and what we&rsquo;ve shipped.
+                {site.name} is taking on new project, embedded, and research engagements.
               </h2>
             </div>
             <Button asChild size="lg">
               <Link href="/contact">
-                Request the deck
+                Start a conversation
                 <ArrowUpRight size={16} />
               </Link>
             </Button>

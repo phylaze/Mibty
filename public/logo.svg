@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="MIBTY">
+  <title>MIBTY</title>
+  <!-- Two overlapping triangular peaks. Left = cobalt, right = magenta.
+       Overlap region renders darker via multiply. Designed to render
+       crisply on white (preferred) or dark surfaces (logomark stays
+       legible due to additive contrast). -->
+  <g style="mix-blend-mode: multiply;">
+    <polygon points="20,180 95,20 130,180" fill="#1747D2" />
+    <polygon points="70,180 105,20 180,180" fill="#B81FBD" />
+  </g>
+</svg>
