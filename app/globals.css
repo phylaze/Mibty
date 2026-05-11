@@ -1,0 +1,305 @@
+@import "tailwindcss";
+@import "../styles/tokens.css";
+
+/* ─────────────────────────────────────────────────────────────────────
+   Theme registration — exposes our design tokens as Tailwind utilities.
+   See https://tailwindcss.com/docs/theme for v4 @theme docs.
+   ───────────────────────────────────────────────────────────────────── */
+
+@theme inline {
+  /* Colors — namespaced so utilities read like bg-ink-900, text-violet-500 */
+  --color-ink-900: var(--color-ink-900);
+  --color-ink-800: var(--color-ink-800);
+  --color-ink-700: var(--color-ink-700);
+  --color-ink-600: var(--color-ink-600);
+  --color-ink-500: var(--color-ink-500);
+  --color-mist-100: var(--color-mist-100);
+  --color-mist-200: var(--color-mist-200);
+  --color-mist-300: var(--color-mist-300);
+  --color-violet-300: var(--color-brand-violet-300);
+  --color-violet-500: var(--color-brand-violet-500);
+  --color-violet-700: var(--color-brand-violet-700);
+  --color-cyan-400: var(--color-brand-cyan-400);
+  --color-mint-400: var(--color-brand-mint-400);
+  --color-amber-300: var(--color-brand-amber-300);
+  --color-cream-100: var(--color-brand-cream-100);
+  --color-danger: var(--color-status-danger);
+  --color-success: var(--color-status-success);
+
+  /* Semantic colors — these are *what changes* between dark and light */
+  --color-bg: var(--color-ink-900);
+  --color-surface: var(--color-ink-800);
+  --color-surface-raised: var(--color-ink-700);
+  --color-border: var(--color-ink-600);
+  --color-divider: var(--color-ink-500);
+  --color-fg: var(--color-text-hi);
+  --color-fg-muted: var(--color-text-mid);
+  --color-fg-subtle: var(--color-text-low);
+
+  /* Type system */
+  --font-sans: var(--font-display);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  /* Radius */
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-s);
+  --radius-md: var(--radius-m);
+  --radius-lg: var(--radius-l);
+  --radius-xl: var(--radius-xl);
+  --radius-full: var(--radius-full);
+
+  /* Containers */
+  --container-prose: var(--container-prose);
+  --container-default: var(--container-default);
+  --container-wide: var(--container-wide);
+
+  /* Easings */
+  --ease-out-soft: var(--ease-easeout);
+  --ease-out-expo: var(--ease-expoout);
+  --ease-in-out-soft: var(--ease-easeinout);
+}
+
+/* Bind the design system's logical font tokens to the actual Next.js font
+   CSS variables injected by `next/font` in app/layout.tsx. This keeps the
+   token JSON family-agnostic while letting us swap families at the layout
+   layer (e.g., from Geist to Söhne) without touching tokens. */
+:root {
+  --font-display: var(--font-geist-sans, "Inter"), system-ui, -apple-system, sans-serif;
+  --font-body: var(--font-geist-sans, "Inter"), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono, "JetBrains Mono"), ui-monospace, monospace;
+  --font-serif: var(--font-fraunces, "Tiempos Headline"), Georgia, serif;
+}
+
+/* Dark mode is the default. Light mode opts in via [data-theme="light"]. */
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Light-mode token overrides — the *semantic* colors flip, raw scales don't */
+[data-theme="light"] {
+  --color-bg: var(--color-mist-100);
+  --color-surface: var(--color-mist-200);
+  --color-surface-raised: #ffffff;
+  --color-border: var(--color-mist-300);
+  --color-divider: var(--color-mist-300);
+  --color-fg: var(--color-text-hilight);
+  --color-fg-muted: var(--color-text-midlight);
+  --color-fg-subtle: var(--color-text-lowlight);
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Base layer — minimal resets and global type
+   ───────────────────────────────────────────────────────────────────── */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-leading);
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-brand-violet-500) 35%, transparent);
+    color: var(--color-text-hi);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-violet-500);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: var(--color-border);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Typography utilities — semantic classes for the type scale
+   ───────────────────────────────────────────────────────────────────── */
+
+@layer components {
+  .type-display-xl {
+    font-size: var(--type-display-xl-size);
+    line-height: var(--type-display-xl-leading);
+    letter-spacing: var(--type-display-xl-tracking);
+    font-weight: var(--type-display-xl-weight);
+  }
+  .type-display-l {
+    font-size: var(--type-display-l-size);
+    line-height: var(--type-display-l-leading);
+    letter-spacing: var(--type-display-l-tracking);
+    font-weight: var(--type-display-l-weight);
+  }
+  .type-display-m {
+    font-size: var(--type-display-m-size);
+    line-height: var(--type-display-m-leading);
+    letter-spacing: var(--type-display-m-tracking);
+    font-weight: var(--type-display-m-weight);
+  }
+  .type-display-s {
+    font-size: var(--type-display-s-size);
+    line-height: var(--type-display-s-leading);
+    letter-spacing: var(--type-display-s-tracking);
+    font-weight: var(--type-display-s-weight);
+  }
+  .type-headline {
+    font-size: var(--type-headline-size);
+    line-height: var(--type-headline-leading);
+    letter-spacing: var(--type-headline-tracking);
+    font-weight: var(--type-headline-weight);
+  }
+  .type-title {
+    font-size: var(--type-title-size);
+    line-height: var(--type-title-leading);
+    letter-spacing: var(--type-title-tracking);
+    font-weight: var(--type-title-weight);
+  }
+  .type-body-l {
+    font-size: var(--type-body-l-size);
+    line-height: var(--type-body-l-leading);
+    letter-spacing: var(--type-body-l-tracking);
+    font-weight: var(--type-body-l-weight);
+  }
+  .type-body {
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-leading);
+  }
+  .type-body-s {
+    font-size: var(--type-body-s-size);
+    line-height: var(--type-body-s-leading);
+    letter-spacing: var(--type-body-s-tracking);
+  }
+  .type-eyebrow {
+    font-size: var(--type-eyebrow-size);
+    line-height: var(--type-eyebrow-leading);
+    letter-spacing: var(--type-eyebrow-tracking);
+    font-weight: var(--type-eyebrow-weight);
+    text-transform: uppercase;
+  }
+  .type-mono-s {
+    font-family: var(--font-mono);
+    font-size: var(--type-mono-s-size);
+    line-height: var(--type-mono-s-leading);
+    font-weight: var(--type-mono-s-weight);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Atmospheric primitives — the "field" backdrop and glass surfaces
+   ───────────────────────────────────────────────────────────────────── */
+
+@layer utilities {
+  .bg-veil {
+    background-image: var(--gradient-veil);
+  }
+  .bg-plasma {
+    background-image: var(--gradient-plasma);
+  }
+  .bg-substrate {
+    background-image: var(--gradient-substrate);
+  }
+  .text-plasma {
+    background-image: var(--gradient-plasma);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Glass surface — sticky header, popovers, dialogs */
+  .surface-glass {
+    background-color: color-mix(in oklab, var(--color-surface) 65%, transparent);
+    backdrop-filter: blur(var(--blur-glass)) saturate(140%);
+    -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(140%);
+    border: 1px solid color-mix(in oklab, var(--color-border) 80%, transparent);
+  }
+
+  /* Hairline — 1px border that respects HiDPI */
+  .hairline {
+    border: 1px solid var(--color-border);
+  }
+  .hairline-t {
+    border-top: 1px solid var(--color-border);
+  }
+  .hairline-b {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Halo shadows — substrate-coded luminous glows */
+  .halo-violet {
+    box-shadow: var(--shadow-haloviolet);
+  }
+  .halo-cyan {
+    box-shadow: var(--shadow-halocyan);
+  }
+  .halo-mint {
+    box-shadow: var(--shadow-halomint);
+  }
+  .halo-amber {
+    box-shadow: var(--shadow-haloamber);
+  }
+
+  /* The "field" — animated noise + radial veil for hero backdrops */
+  .field-backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .field-backdrop::before {
+    content: "";
+    position: absolute;
+    inset: -10%;
+    background: var(--gradient-veil);
+    filter: blur(40px);
+    opacity: 0.9;
+  }
+  .field-backdrop::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 24% 18%, rgba(255, 255, 255, 0.18), transparent 50%),
+      radial-gradient(1px 1px at 78% 42%, rgba(124, 92, 255, 0.35), transparent 50%),
+      radial-gradient(1px 1px at 42% 72%, rgba(34, 211, 238, 0.3), transparent 50%),
+      radial-gradient(1px 1px at 88% 86%, rgba(94, 234, 212, 0.22), transparent 50%);
+    mix-blend-mode: screen;
+    opacity: 0.6;
+  }
+}

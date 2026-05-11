@@ -1,0 +1,170 @@
+{
+  "$schema": "https://design-tokens.org/schema.json",
+  "meta": {
+    "name": "MIBTY Design Tokens",
+    "version": "0.1.0",
+    "description": "Source-of-truth tokens for the MIBTY website. Consumed by tokens.css generator and Tailwind v4 theme. Do not hand-edit Tailwind config — edit this file."
+  },
+  "color": {
+    "ink": {
+      "900": "#06070A",
+      "800": "#0A0B10",
+      "700": "#10131B",
+      "600": "#1A1E2A",
+      "500": "#2A2F3D"
+    },
+    "mist": {
+      "100": "#FAFAF7",
+      "200": "#F1F1EC",
+      "300": "#E4E4DD"
+    },
+    "text": {
+      "hi": "#F5F5F2",
+      "mid": "#B5B7BD",
+      "low": "#7A7E89",
+      "hiLight": "#0A0B10",
+      "midLight": "#3A3F4B",
+      "lowLight": "#6A6E78"
+    },
+    "brand": {
+      "violet": { "300": "#A99BFF", "500": "#7C5CFF", "700": "#5B3FE0" },
+      "cyan":   { "400": "#22D3EE" },
+      "mint":   { "400": "#5EEAD4" },
+      "amber":  { "300": "#F5C97A" },
+      "cream":  { "100": "#F5E6C8" }
+    },
+    "status": {
+      "danger": "#FF5470",
+      "success": "#42D392",
+      "warning": "#F5C97A",
+      "info": "#22D3EE"
+    },
+    "substrate": {
+      "bits":  "#22D3EE",
+      "data":  "#7C5CFF",
+      "cells": "#5EEAD4",
+      "atoms": "#F5C97A"
+    }
+  },
+  "gradient": {
+    "plasma":     "linear-gradient(135deg, #7C5CFF 0%, #22D3EE 100%)",
+    "substrate":  "conic-gradient(from 220deg at 50% 50%, #7C5CFF, #22D3EE, #5EEAD4, #F5C97A, #7C5CFF)",
+    "veil":       "radial-gradient(60% 60% at 50% 0%, rgba(124,92,255,0.18), transparent 70%)",
+    "veilCyan":   "radial-gradient(60% 60% at 50% 0%, rgba(34,211,238,0.16), transparent 70%)",
+    "veilMint":   "radial-gradient(60% 60% at 50% 0%, rgba(94,234,212,0.16), transparent 70%)",
+    "veilAmber":  "radial-gradient(60% 60% at 50% 0%, rgba(245,201,122,0.16), transparent 70%)"
+  },
+  "font": {
+    "family": {
+      "display": "'Geist Sans', 'Inter', system-ui, -apple-system, sans-serif",
+      "body":    "'Geist Sans', 'Inter', system-ui, -apple-system, sans-serif",
+      "mono":    "'Geist Mono', 'JetBrains Mono', ui-monospace, monospace",
+      "serif":   "'Fraunces', 'Tiempos Headline', Georgia, serif"
+    },
+    "weight": {
+      "regular": 400,
+      "medium":  500,
+      "semibold": 600,
+      "bold":    700
+    },
+    "scale": {
+      "displayXl": { "size": "clamp(56px, 6.6vw, 96px)",  "lineHeight": "0.98", "tracking": "-0.04em",  "weight": 500 },
+      "displayL":  { "size": "clamp(44px, 5.0vw, 72px)",  "lineHeight": "1.02", "tracking": "-0.035em", "weight": 500 },
+      "displayM":  { "size": "clamp(36px, 3.8vw, 56px)",  "lineHeight": "1.06", "tracking": "-0.03em",  "weight": 500 },
+      "displayS":  { "size": "clamp(28px, 2.8vw, 40px)",  "lineHeight": "1.12", "tracking": "-0.025em", "weight": 500 },
+      "headline":  { "size": "clamp(22px, 1.9vw, 28px)",  "lineHeight": "1.25", "tracking": "-0.015em", "weight": 600 },
+      "title":     { "size": "clamp(18px, 1.4vw, 20px)",  "lineHeight": "1.35", "tracking": "-0.01em",  "weight": 600 },
+      "bodyL":     { "size": "clamp(17px, 1.25vw, 18px)", "lineHeight": "1.6",  "tracking": "0",        "weight": 400 },
+      "body":      { "size": "16px",                       "lineHeight": "1.6",  "tracking": "0",        "weight": 400 },
+      "bodyS":     { "size": "14px",                       "lineHeight": "1.55", "tracking": "0.005em",  "weight": 400 },
+      "eyebrow":   { "size": "12px",                       "lineHeight": "1.0",  "tracking": "0.16em",   "weight": 600, "transform": "uppercase" },
+      "monoS":     { "size": "13px",                       "lineHeight": "1.5",  "tracking": "0",        "weight": 500 }
+    }
+  },
+  "space": {
+    "0":   "0px",
+    "0.5": "2px",
+    "1":   "4px",
+    "1.5": "6px",
+    "2":   "8px",
+    "3":   "12px",
+    "4":   "16px",
+    "5":   "20px",
+    "6":   "24px",
+    "8":   "32px",
+    "10":  "40px",
+    "12":  "48px",
+    "16":  "64px",
+    "20":  "80px",
+    "24":  "96px",
+    "32":  "128px",
+    "40":  "160px",
+    "50":  "200px"
+  },
+  "radius": {
+    "xs":   "4px",
+    "s":    "8px",
+    "m":    "12px",
+    "l":    "20px",
+    "xl":   "32px",
+    "full": "999px"
+  },
+  "shadow": {
+    "sm":         "0 1px 2px rgba(0,0,0,0.4)",
+    "md":         "0 6px 24px -8px rgba(0,0,0,0.5)",
+    "lg":         "0 24px 48px -12px rgba(0,0,0,0.55)",
+    "haloViolet": "0 0 0 1px rgba(124,92,255,0.18), 0 12px 48px -12px rgba(124,92,255,0.45)",
+    "haloCyan":   "0 0 0 1px rgba(34,211,238,0.18),  0 12px 48px -12px rgba(34,211,238,0.40)",
+    "haloMint":   "0 0 0 1px rgba(94,234,212,0.18),  0 12px 48px -12px rgba(94,234,212,0.40)",
+    "haloAmber":  "0 0 0 1px rgba(245,201,122,0.18), 0 12px 48px -12px rgba(245,201,122,0.40)"
+  },
+  "motion": {
+    "duration": {
+      "instant":   "80ms",
+      "fast":      "160ms",
+      "base":      "280ms",
+      "slow":      "520ms",
+      "cinematic": "1100ms"
+    },
+    "easing": {
+      "easeOut":   "cubic-bezier(0.2, 0.8, 0.2, 1)",
+      "expoOut":   "cubic-bezier(0.16, 1, 0.3, 1)",
+      "easeInOut": "cubic-bezier(0.65, 0, 0.35, 1)",
+      "linear":    "cubic-bezier(0, 0, 1, 1)"
+    },
+    "stagger": {
+      "tight":  "60ms",
+      "normal": "80ms",
+      "loose":  "120ms"
+    }
+  },
+  "breakpoint": {
+    "sm":  "640px",
+    "md":  "768px",
+    "lg":  "1024px",
+    "xl":  "1280px",
+    "2xl": "1440px",
+    "3xl": "1920px"
+  },
+  "container": {
+    "prose":    "720px",
+    "default":  "1248px",
+    "wide":     "1440px",
+    "bleed":    "100vw"
+  },
+  "z": {
+    "base":     0,
+    "raised":   10,
+    "dropdown": 100,
+    "sticky":   200,
+    "overlay":  300,
+    "modal":    400,
+    "popover":  500,
+    "toast":    600,
+    "max":      9999
+  },
+  "blur": {
+    "glass": "12px",
+    "veil":  "32px"
+  }
+}
