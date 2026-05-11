@@ -1,10 +1,11 @@
 import { Container } from "@/components/ui/container";
+import { Counter } from "@/components/motion/counter";
 
 const metrics = [
-  { value: "12+", label: "Countries served" },
-  { value: "40+", label: "Research & enterprise partners" },
-  { value: "50+", label: "Systems shipped" },
-  { value: "4", label: "Substrates of practice" },
+  { value: 12, suffix: "+", label: "Countries served" },
+  { value: 40, suffix: "+", label: "Research & enterprise partners" },
+  { value: 50, suffix: "+", label: "Systems shipped" },
+  { value: 4, suffix: "", label: "Substrates of practice" },
 ];
 
 export function MetricsBar() {
@@ -15,7 +16,11 @@ export function MetricsBar() {
           <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-lg bg-(--color-border) md:grid-cols-4">
             {metrics.map((m) => (
               <li key={m.label} className="flex flex-col gap-2 bg-(--color-surface) p-8">
-                <span className="type-display-s text-plasma font-semibold">{m.value}</span>
+                <Counter
+                  value={m.value}
+                  suffix={m.suffix}
+                  className="type-display-s text-plasma font-semibold"
+                />
                 <span className="type-body-s text-(--color-fg-muted)">{m.label}</span>
               </li>
             ))}

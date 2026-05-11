@@ -3,11 +3,13 @@ import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { Field } from "@/components/three/field";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-24 pb-32 md:pt-32 md:pb-40">
       <div className="field-backdrop" aria-hidden />
+      <Field />
 
       <Container size="wide" className="relative">
         <div className="max-w-4xl">

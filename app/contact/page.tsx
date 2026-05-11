@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/marketing/header";
-import { Footer } from "@/components/marketing/footer";
+import { PageShell } from "@/components/marketing/page-shell";
+import { PageHero } from "@/components/marketing/page-hero";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { ContactForm } from "@/components/marketing/contact-form";
+import { CalEmbed } from "@/components/marketing/cal-embed";
+import { LocalTime } from "@/components/marketing/local-time";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -11,24 +15,53 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
-      <Header />
-      <main>
-        <section className="relative overflow-hidden pt-32 pb-24">
-          <div className="field-backdrop" aria-hidden />
-          <Container size="wide" className="relative">
-            <Eyebrow>Contact</Eyebrow>
-            <h1 className="type-display-l mt-6 max-w-3xl text-(--color-fg)">
-              Let&rsquo;s talk.
-            </h1>
-            <p className="type-body-l mt-6 max-w-2xl text-(--color-fg-muted)">
-              Tell us what you&rsquo;re building. Project work, research collaboration, press —
-              all welcome. The forms and Cal.com booking flow ship in Phase 2.
-            </p>
-          </Container>
-        </section>
-      </main>
-      <Footer />
-    </>
+    <PageShell>
+      <PageHero
+        eyebrow="Contact"
+        title={<>Let&rsquo;s talk.</>}
+        description="Tell us what you're building. Project work, research collaboration, press — all welcome. We reply within two business days."
+      />
+
+      <section className="pb-24">
+        <Container size="wide">
+          <ContactForm />
+        </Container>
+      </section>
+
+      <section className="hairline-t py-24">
+        <Container size="wide">
+          <div className="grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <Eyebrow>Or book directly</Eyebrow>
+              <h2 className="type-display-s mt-4 text-(--color-fg)">
+                Thirty minutes on the calendar.
+              </h2>
+              <p className="type-body-l mt-4 text-(--color-fg-muted)">
+                If your timeline is tight, skip the form. We&rsquo;ll come prepared.
+              </p>
+              <dl className="type-mono-s mt-10 space-y-3 text-(--color-fg-subtle)">
+                <div className="flex justify-between gap-3">
+                  <dt>HQ</dt>
+                  <dd className="text-(--color-fg)">{site.hq}</dd>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <dt>Local</dt>
+                  <dd className="text-(--color-fg)">
+                    <LocalTime />
+                  </dd>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <dt>Email</dt>
+                  <dd className="text-(--color-fg)">{site.email}</dd>
+                </div>
+              </dl>
+            </div>
+            <div className="lg:col-span-8">
+              <CalEmbed />
+            </div>
+          </div>
+        </Container>
+      </section>
+    </PageShell>
   );
 }
