@@ -97,8 +97,8 @@ export function ProcessTimeline() {
             Four steps. The same four, every time.
           </h2>
           <p className="type-body-l mt-6 text-(--color-fg-muted)">
-            We frame, prototype, validate, scale. Discipline at each step is what compounds —
-            across substrates, across decades.
+            Frame, prototype, validate, scale. Discipline at each step is what compounds — across
+            substrates, across years.
           </p>
         </div>
 

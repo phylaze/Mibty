@@ -12,11 +12,14 @@ export function Footer() {
           <div className="md:col-span-4">
             <Logo />
             <p className="mt-6 max-w-xs type-body-s text-(--color-fg-muted)">
-              {site.legalName}. Engineering systems across software, AI, biotech, and nanotech for
-              organizations operating at the frontier.
+              {site.legalName}. Building systems across software, AI &amp; robotics, biotechnology,
+              and nanotechnology — out of Lagos.
             </p>
             <p className="mt-6 type-mono-s text-(--color-fg-subtle)">
               {site.hq} · <LocalTime />
+            </p>
+            <p className="mt-2 type-mono-s text-(--color-fg-subtle)">
+              {site.registrationNote}
             </p>
           </div>
 

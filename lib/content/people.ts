@@ -1,38 +1,50 @@
+// Leadership placeholders. The Memart records four subscribers — the
+// actual people behind MIBTY. Names and bios are intentionally left as
+// template tokens until the team approves what gets published. Fill in
+// `name`, `role`, `bio`, and `credentials`, then add a portrait at
+// `public/team/{slug}.jpg` (the portrait field is wired in /about).
+
 export type Person = {
   slug: string;
   name: string;
   role: string;
   bio: string;
   credentials: string[];
+  /** Set to true once the team has approved this person's bio for publication. */
+  published: boolean;
 };
 
 export const people: Person[] = [
   {
-    slug: "founder",
-    name: "Founder",
+    slug: "subscriber-1",
+    name: "{{ Founder Name }}",
     role: "Chief Executive",
-    bio: "Engineering leader with a decade of experience translating frontier research into deployed systems across software, AI, and biotech.",
-    credentials: ["MSc, Engineering", "Open-source maintainer", "Published researcher"],
+    bio: "Bio pending approval.",
+    credentials: [],
+    published: false,
   },
   {
-    slug: "head-of-ai",
-    name: "Head of AI",
-    role: "AI Systems Lead",
-    bio: "ML engineer focused on evaluation-first model development and production systems that hold up under real users.",
-    credentials: ["PhD, Computer Science", "Former research engineer, industry lab"],
+    slug: "subscriber-2",
+    name: "{{ Co-founder Name }}",
+    role: "Co-founder",
+    bio: "Bio pending approval.",
+    credentials: [],
+    published: false,
   },
   {
-    slug: "head-of-biotech",
-    name: "Head of Biotech",
-    role: "Biotechnology Lead",
-    bio: "Computational biologist with experience deploying diagnostic and decision-support systems in hospital networks.",
-    credentials: ["MD, Pathology", "Clinical informatics certification"],
+    slug: "subscriber-3",
+    name: "{{ Director Name }}",
+    role: "Director",
+    bio: "Bio pending approval.",
+    credentials: [],
+    published: false,
   },
   {
-    slug: "head-of-research",
-    name: "Head of Research",
-    role: "Research Director",
-    bio: "Researcher and translator. Bridges academic output and deployable infrastructure across substrates.",
-    credentials: ["PhD, Materials Science", "Multiple peer-reviewed publications"],
+    slug: "subscriber-4",
+    name: "{{ Director Name }}",
+    role: "Director",
+    bio: "Bio pending approval.",
+    credentials: [],
+    published: false,
   },
 ];

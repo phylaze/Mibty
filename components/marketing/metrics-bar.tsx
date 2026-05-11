@@ -1,11 +1,15 @@
 import { Container } from "@/components/ui/container";
-import { Counter } from "@/components/motion/counter";
 
-const metrics = [
-  { value: 12, suffix: "+", label: "Countries served" },
-  { value: 40, suffix: "+", label: "Research & enterprise partners" },
-  { value: 50, suffix: "+", label: "Systems shipped" },
-  { value: 4, suffix: "", label: "Substrates of practice" },
+// Four substrate "anchors" replace the fabricated metrics. Each is a
+// truthful capability statement, not a count. When the company has
+// verifiable numbers it wants to publish, restore Counter and pass
+// real values in.
+
+const pillars = [
+  { label: "Bits", body: "Software, web, and cloud platforms." },
+  { label: "Data", body: "AI, robotics, data mining and analytics." },
+  { label: "Cells", body: "Biotechnology for human and animal health." },
+  { label: "Atoms", body: "Nanotechnology, materials, sensing." },
 ];
 
 export function MetricsBar() {
@@ -14,14 +18,10 @@ export function MetricsBar() {
       <Container size="wide">
         <div className="hairline rounded-xl bg-(--color-surface) p-2">
           <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-lg bg-(--color-border) md:grid-cols-4">
-            {metrics.map((m) => (
-              <li key={m.label} className="flex flex-col gap-2 bg-(--color-surface) p-8">
-                <Counter
-                  value={m.value}
-                  suffix={m.suffix}
-                  className="type-display-s text-plasma font-semibold"
-                />
-                <span className="type-body-s text-(--color-fg-muted)">{m.label}</span>
+            {pillars.map((p) => (
+              <li key={p.label} className="flex flex-col gap-2 bg-(--color-surface) p-8">
+                <span className="type-eyebrow text-violet-300">{p.label}</span>
+                <span className="type-headline text-(--color-fg)">{p.body}</span>
               </li>
             ))}
           </ul>

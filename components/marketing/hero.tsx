@@ -38,8 +38,8 @@ export function Hero() {
           </div>
 
           <p className="type-mono-s mt-12 text-(--color-fg-subtle)">
-            Trusted by research institutions, healthcare leaders, and enterprises across multiple
-            countries.
+            A Lagos-based engineering and research company — incorporated under the Companies and
+            Allied Matters Act, 2020.
           </p>
         </div>
       </Container>
