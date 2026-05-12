@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageShell } from "@/components/marketing/page-shell";
 import { PageHero } from "@/components/marketing/page-hero";
+import { Products } from "@/components/marketing/products";
 import { Container } from "@/components/ui/container";
 import { Tag } from "@/components/ui/tag";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -13,9 +14,9 @@ import { substrates } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Capabilities",
+  title: "Capabilities & products",
   description:
-    "What MIBTY is chartered and equipped to engineer — across software, AI & robotics, biotechnology, and nanotechnology.",
+    "MIBTY's products and the capabilities we engineer across software, AI & robotics, biotechnology, and nanotechnology.",
 };
 
 const substrateBorderTop: Record<string, string> = {
@@ -29,10 +30,31 @@ export default function CapabilitiesPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Capabilities"
-        title="What we build."
-        description="A young company writing its first chapter in public. Selected engagements will live here as they ship — until then, the capabilities we're chartered and equipped to engineer."
+        eyebrow="What we build"
+        title="Products and capabilities."
+        description="A young company writing its first chapter in public. Our own products live here alongside the kinds of engagements we're chartered and equipped to take on."
       />
+
+      <Products
+        eyebrow="Our products"
+        heading="What we ship under our own roof."
+        subhead="Software MIBTY owns and operates."
+      />
+
+      <section className="hairline-t pt-32 pb-24">
+        <Container size="wide">
+          <div className="max-w-2xl pb-12">
+            <Eyebrow>Capabilities</Eyebrow>
+            <h2 className="type-display-m mt-4 text-(--color-fg)">
+              What we engineer for partners.
+            </h2>
+            <p className="type-body-l mt-6 text-(--color-fg-muted)">
+              The kinds of problems we&rsquo;re built to take on. Selected client engagements will
+              land here as they ship.
+            </p>
+          </div>
+        </Container>
+      </section>
 
       <section className="pb-24">
         <Container size="wide">
