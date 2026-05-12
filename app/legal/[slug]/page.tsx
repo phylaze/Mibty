@@ -64,19 +64,7 @@ export default async function LegalPage({
       <Container size="prose">
         <article className="pb-32">
           {/* Disclaimer banner — visible, intentionally hard to miss. */}
-          <aside
-            role="note"
-            className="hairline mt-4 flex items-start gap-3 rounded-xl bg-(--color-surface) p-5"
-          >
-            <AlertCircle size={18} className="mt-0.5 shrink-0 text-amber-300" aria-hidden />
-            <div className="type-body-s text-(--color-fg-muted)">
-              <strong className="text-(--color-fg)">Template, pending legal review.</strong>{" "}
-              This document is a working template based on the Nigeria Data Protection Act 2023 and
-              the Companies and Allied Matters Act 2020. It has not yet been reviewed by qualified
-              counsel. Do not rely on it as legal advice. We will replace this notice with a
-              counsel-reviewed version before treating these terms as final.
-            </div>
-          </aside>
+    
 
           <p className="type-body-l mt-12 font-serif italic text-(--color-fg-muted)">
             {doc.intro}
