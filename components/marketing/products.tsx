@@ -111,6 +111,9 @@ export function Products({
                     </h3>
                     <Tag substrate={p.substrate}>{substrates[p.substrate].label}</Tag>
                   </div>
+                  {p.tagline ? (
+                    <p className="type-eyebrow mt-4 text-plasma">{p.tagline}</p>
+                  ) : null}
                   <p className="type-body-l mt-4 text-(--color-fg-muted)">{p.oneLiner}</p>
                 </div>
 
