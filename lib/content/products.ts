@@ -4,9 +4,14 @@ import type { Substrate } from "@/lib/site";
 // `capabilities` (kinds of problems we can engineer). Products are
 // shippable software MIBTY owns and operates.
 //
-// Tagline / oneLiner remain template tokens until the team confirms the
-// public-facing copy. Replace the {{ ... }} placeholders inline; the
-// route, design, and surfaces don't need to change.
+// Tagline / oneLiner / description remain template tokens until the
+// team confirms the public-facing copy. Replace the {{ ... }}
+// placeholders inline; the route, design, and surfaces don't need to
+// change.
+//
+// `logo` points to a file under /public/products/. The Twidii mark
+// committed here is a reproduction from observation; swap with the
+// official asset when available.
 
 export type Product = {
   slug: string;
@@ -16,6 +21,8 @@ export type Product = {
   url: string;
   substrate: Substrate;
   status: "live" | "beta" | "in-development";
+  /** Path under /public, served as a static asset. Square aspect, ≥ 256px recommended. */
+  logo?: string;
 };
 
 export const products: Product[] = [
@@ -24,10 +31,11 @@ export const products: Product[] = [
     name: "Twidii",
     oneLiner: "{{ Twidii one-line positioning — pending team approval }}",
     description:
-      "{{ A short paragraph describing what Twidii is, who it's for, and what it does. Pending the team's approved copy. }}",
+      "{{ A short paragraph describing what Twidii is, who it's for, and what it does. Pending the team's approved copy from twidii.com. }}",
     url: "https://twidii.com",
     substrate: "bits",
     status: "live",
+    logo: "/products/twidii.svg",
   },
 ];
 

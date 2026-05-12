@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Twidii">
+  <title>Twidii</title>
+  <defs>
+    <linearGradient id="twidii-ring" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22D3EE" />
+      <stop offset="55%" stop-color="#7C5CFF" />
+      <stop offset="100%" stop-color="#D946EF" />
+    </linearGradient>
+  </defs>
+
+  <!-- Gradient ring with white interior -->
+  <circle cx="100" cy="100" r="94" fill="none" stroke="url(#twidii-ring)" stroke-width="8" />
+  <circle cx="100" cy="100" r="86" fill="#FFFFFF" />
+
+  <!-- T letterform built from three solid shapes -->
+  <!-- Top-left tile: cyan -->
+  <rect x="48" y="56" width="48" height="50" rx="6" fill="#0EA5E9" />
+  <!-- Top-right tile: magenta -->
+  <rect x="104" y="56" width="48" height="50" rx="6" fill="#D946EF" />
+  <!-- Vertical stem with notched bookmark tail at the bottom -->
+  <path
+    d="M 86 56
+       H 114
+       V 146
+       L 100 138
+       L 86 146
+       Z"
+    fill="#1E40AF"
+  />
+</svg>
